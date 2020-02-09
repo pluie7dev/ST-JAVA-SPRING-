@@ -26,7 +26,7 @@ ex 1) list.jsp
 </c:forEach>
   </table>
 
------------
+-----------  
 boardList 라는 리스트 객체를 가져와서 뷰(jsp)에서 
 forEach로 반복하여 출력한다 
 ex 1) 예제는 JNDI 방식을 사용 
