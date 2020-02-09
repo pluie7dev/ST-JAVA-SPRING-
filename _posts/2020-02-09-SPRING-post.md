@@ -53,7 +53,12 @@ ex 1) springboard-servlet.xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" .../>
 
-<bean id="dataSource" class>
+<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+  <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+  <property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
+  <property name="username" value="scott"/>
+  <property name="password" value="a1234"/>
+  
   </bean>
   
   <!-- Controller --> 
