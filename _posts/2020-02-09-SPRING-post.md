@@ -10,6 +10,8 @@ jstl 라이브러리 : tomcat /example/WEB-INF/lib/ 2개 라이브러리 -> 프�
 
 
 -----------
+
+/*
 ex 1) list.jsp
 <%@ taglib prifix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -25,6 +27,7 @@ ex 1) list.jsp
   </tr>
 </c:forEach>
   </table>
+*/
 
 -----------  
 boardList 라는 리스트 객체를 가져와서 뷰(jsp)에서 
@@ -44,6 +47,7 @@ springboard-servlet.xml(예제)
 1) bean 클래스 생성(bean 객체)
 
 -----------
+/*
 ex 1) springboard-servlet.xml
 
 <?xml version="1.0" encoding="UTF-8"?>
@@ -63,7 +67,7 @@ ex 1) springboard-servlet.xml
     <ref bean="springJdbcTemplate"/>
   </property>
   </bean>
-
+*/
 -----------
 
   
