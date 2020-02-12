@@ -71,4 +71,63 @@ BoardListContorller.java
   -HttpServletRequest/Response
 
 ---
+
+---
+1) view : list.jsp
+<%@ taglib prifix="c" uri="http://java.sun.com/
+jsp/jstl/core" %>
+
+<table border = "1">
+  <tr>
+    <th>번호</th><th>제목</th><th>등록자</th>
+    <th>등록일</th>
+  </tr>
+  
+<c:forEach var="vo" items="${boardList}" delims="">
+  <tr>
+  <td>${vo.seq}</td><td>${vo.title}</td><td>
+  ${vo.writer}</td><td
+  ${vo.regdate}</tc>
+  </tr>
+</c:forEach>
+  </table>
+  
+2) obj 
+web.xml
+
+
+springboard-servlet.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/
+schema/beans" .../>
+
+<bean id="dataSource" 
+class="org.springframework.jdbc.datasource.
+DriverManagerDataSource">
+<property name="driverClassName" 
+value="oracle.jdbc.driver.OracleDriver"/>
+<property name="url" 
+value="jdbc:oracle:thin:@localhost:1521:orcl"/>
+<property name="username" value="scott"/>
+<property name="password" value="a1234"/>
+  
+</bean>
+  
+<!-- Controller --> 
+<bean name="/board.list.do" 
+class="board.controller.BoardListController">
+<property name="boardDao" ref="boardDao"/>
+</bean>
+  
+<!-- DAO -->
+<bean id="boardDao" class="board.dao.BoardDaoImpl">
+<property name="jdbcTemplate">
+ <ref bean="springJdbcTemplate"/>
+</property>
+</bean>
+
+3) controller : BoardListContorller.java
+
+
+
 ```
