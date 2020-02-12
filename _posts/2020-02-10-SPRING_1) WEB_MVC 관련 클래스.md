@@ -37,7 +37,7 @@ HandlerMapping 이용
 4) ViewResolver(org.springframework.web.servlet.view)
 컨트롤러를 통해 db작업등의 결과를 ModelAndView로 가져오면
 Dispatcher-Servlet은 ViewResolver에게 해당 객체를 
-보여줄 view를 찾도록 
+보여줄 view를 찾도록 요청 
  (1) InternalResourceViewResolver (default)
  (2) ResourceBundleViewResolver
  (3) velocity.VelocityViewResolver
