@@ -33,6 +33,11 @@ Dispatcher-Servlet은 클라이언트의 요청이 들어오면 해당 요청을
  (2) ResourceBundleViewResolver
  (3) velocity.VelocityViewResolver
  
+5) View(jsp/org.springframework.web.servlet.view)
+ (1) InternalResourceView (default)
+ (2) JstlView
+ (3) VelocityView
+ 
  
  * Dispatcher-Servlet을 통해 HandlerMapping, ViewResolver는 자동으로(default) 생성되는 객체
    사용자는 Controller만 비즈니스 로직으로 구현한다
