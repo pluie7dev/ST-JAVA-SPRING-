@@ -53,4 +53,22 @@ HandlerMapping 이용
    
 
 ---
+게시판 기본 프로젝트 테스트 파일 구성
+1) view : index.html/list.jsp
+
+2) obj  
+web.xml
+  -servlet class(DispatcherServlet)
+  -servlet mapping(*.do)
+springboard-servlet.xml
+  -bean(.do class)
+  -DAO
+  
+3) controller 
+BoardListContorller.java
+  -implements Controller
+  -ModelAnView
+  -HttpServletRequest/Response
+
+---
 ```
