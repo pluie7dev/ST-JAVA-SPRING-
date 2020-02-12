@@ -127,7 +127,18 @@ class="board.controller.BoardListController">
 </bean>
 
 3) controller : BoardListContorller.java
+public class BoardListController implements Controller {
 
+ @Override
+ public ModelAndView handleRequest(HttpServletRequest arg0,
+ HttpservletResponse arg1) throws Exception{
+ 
+  ModelAndview mav = new ModelAndView();
+  mav.setViewName("WEB-INF/jsp/list.jsp");
+  
+  return mav;
+  }
+}
 
 
 ```
