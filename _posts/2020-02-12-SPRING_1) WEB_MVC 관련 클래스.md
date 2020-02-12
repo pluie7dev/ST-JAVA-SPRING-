@@ -53,13 +53,4 @@ HandlerMapping 이용
    
 
 ---
-<1> JNDI를 활용한 리스트 페이지 작성
-
-jstl 라이브러리 : tomcat /example/WEB-INF/lib/ 
-2개 라이브러리 -> 프로젝트에 복사
-
-
----
-ex 1) list.jsp
-
 ```
