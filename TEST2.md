@@ -20,7 +20,7 @@
 ---
 
 
-\\<!--
+```
 <1> 기존 리스트 페이지에서 uri 추가
 
 ex 1) list.jsp
@@ -34,10 +34,10 @@ ex 1) list.jsp
 <c:forEach var="vo" items="${boardList}">
   <tr>
   <td>${vo.seq}</td>
-  <td><a href="board_detail.do?"seq=${vo.seq}">${vo.title}</a></td> //링크처리
+  <td><a href="board_detail.do?"seq=${vo.seq}">${vo.title}</a></td> 링크처리
   <td>${vo.writer}</td>
   <td>${vo.regdate}</tc>
   </tr>
 </c:forEach>
   </table>
--->
+```
