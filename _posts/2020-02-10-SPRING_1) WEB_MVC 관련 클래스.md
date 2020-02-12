@@ -16,14 +16,12 @@ WEB_MVC 관련 클래스 종류
 
 1) Dispatcher-Servlet
 (org.springframework.web.servlet.DispatcherServlet)
-
 Servlet Container에서 HTTP프로토콜을 통해 들어오는 
 모든 요청을 프레젠테이션 계층의 제일앞에 둬서 중앙
 집중식으로 처리해주는 프론트 컨트롤러
 
 2) HandlerMapping
 (org.springframework.web.servlet.handler)
-
 Dispatcher-Servlet은 클라이언트의 요청이 들어오면
 해당 요청을 처리할 컨트롤러를 구현하기 위해 
 HandlerMapping 이용
@@ -37,6 +35,9 @@ HandlerMapping 이용
  (4) SimpleFormController
  
 4) ViewResolver(org.springframework.web.servlet.view)
+컨트롤러를 통해 db작업등의 결과를 ModelAndView로 가져오면
+Dispatcher-Servlet은 ViewResolver에게 해당 객체를 
+보여줄 view를 찾도록 
  (1) InternalResourceViewResolver (default)
  (2) ResourceBundleViewResolver
  (3) velocity.VelocityViewResolver
