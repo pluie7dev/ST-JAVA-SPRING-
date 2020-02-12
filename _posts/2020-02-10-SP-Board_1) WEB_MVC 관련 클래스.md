@@ -52,6 +52,28 @@ Dispatcher-Servlet은 ViewResolver에게 해당 객체를
    ViewResolver는 자동으로(default) 생성되는 객체
    사용자는 Controller만 비즈니스 로직으로 구현한다
    
+---
+
+JDBC 
+1) 절차 
+  (1) db와 연결   : DataSource
+  (2) 명령문 실행 : JdbcTemplate
+  (3) 결과를 수신 : RowMapper
+  
+2) DataSource
+  (1) org.springframework.jdbc.datasource.DriverManagerDataSource
+  (2) org.springframework.jndi.JndiObjectFactoryBean
+  
+3) JdbcTemplate
+  (1) org.springframework.jdbc.core.JdbcTemplate
+      - query(), update()
+  (2) org.springframework.jdbc.core.support.JdbcDaoSupport
+      - getConnection(), getJdbcTemplate()
+      
+4) RowMapper(org.springframework.jdbc.core)
+  (1) Callback Interface
+  
+5) ResultSetExtractor
 
 ---
 게시판 기본 프로젝트 테스트 파일 구성
@@ -70,6 +92,10 @@ BoardListContorller.java
   -implements Controller
   -ModelAnView
   -HttpServletRequest/Response
+  
+4) DAO(interface) 
+
+5) server.xml(db 접속설정)
 
 ---
 
@@ -141,5 +167,26 @@ public class BoardListController implements Controller {
   }
 }
 
+4) DAO(interface)
+public class BoardDaoImpl implements BoardDao{
+
+ @Override
+ public List list(){
+   return null;
+ }
+ 
+5) server.xml(db 접속설정)
+<Resource name="jdbc/SpringDB"
+ auth="Container"
+ type="javax.sql.DataSource"
+ username="scott"
+ password="a1111"
+ driverClassname="oracle.jdbc.driver.OracleDriver"
+ url="jdbc:oracle:thin:@localhost:1521:orcl"
+ maxActive="8"
+ maxIdle="4"/>
+ 
+ 
+}
 
 ```
