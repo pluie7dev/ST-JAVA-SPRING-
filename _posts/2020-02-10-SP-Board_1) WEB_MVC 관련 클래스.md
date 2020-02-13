@@ -93,7 +93,7 @@ BoardListContorller.java
   -ModelAnView
   -HttpServletRequest/Response
   
-4) DAO(interface), DAOImpl(class)
+4) DAO(interface), DAOImpl(class), DTO
 
 5) server.xml(db 접속설정)
 
@@ -167,23 +167,50 @@ public class BoardListController implements Controller {
   }
 }
 
-4) DAO(interface)
+4) -DAO(interface)
 public class BoardDaoImpl implements BoardDao{
  public List list();
   }
  
-   DAOImpl(class)
+   -DAOImpl(class)
  public class BoardDaoImpl implements BoardDao{
  private JdbcTemplate jdbctemplate;
  
  public void setJdebcTemplate(JdbcTemplate jdbcTemplate){
   this.jdbcTempalte = jdbcTempalte;
  }
- 
+  
  @Override
  public List list(){
+   String sql = "select * from tblSpringboard order by seq desc";
+   
+   jdbcTemplate.query(sql, result); 
    return null;
  }   
+ 
+   -DTO(class)
+ public class BoardDto{   
+   private int seq;
+   private String title;
+   private String content;
+   private String writer;
+   private String regdate;  
+   
+   ... 
+   
+   public String getWriter() {
+      return writer;
+   }
+   
+   public String setWriter(String writer) {
+      this.writer = writer;
+   }
+   
+   ... 
+ 
+ }
+   
+   
     
  
 5) server.xml(db 접속설정)
