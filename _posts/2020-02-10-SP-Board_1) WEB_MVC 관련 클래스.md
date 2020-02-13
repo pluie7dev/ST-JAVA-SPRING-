@@ -187,22 +187,26 @@ public class BoardDaoImpl implements BoardDao{
   
  @Override
  public List list(){
-   String sql = "select * from tblSpringboard order by seq desc";
-   List result = new ArrayList();   
-   RowMapper mapper = new RowMapper(){
+ String sql = "select * from tblSpringboard order by seq desc";
+ List result = new ArrayList();   
+ RowMapper mapper = new RowMapper(){
         
-        @Override
-        public Object mapRow(ResultSet arg0, int arg1) throws SQLException{
-          BoardDto dto = new BoardDto();
-          dto.setContent(arg0.getString("content"));
-          dto.setHitcount(arg0.getInt("hitcount"));
+   @Override
+   public Object mapRow(ResultSet arg0, int arg1) throws 
+   SQLException{
+    BoardDto dto = new BoardDto();
+    dto.setContent(arg0.getString("content"));
+    dto.setHitcount(arg0.getInt("hitcount"));
           ...
           
           return dto;
         }
    }
    
-   result = jdbcTemplate.query(sql, mapper);    //sql은 쿼리문, mapper은 쿼리실행후 가져올 결과값들(dto에 담는다)
+   result = jdbcTemplate.query(sql, mapper);    
+   //sql은 쿼리문, mapper은 쿼리실행후 가져올 결과값들
+     (dto에 담는다)
+   
    return result;
  }   
  
