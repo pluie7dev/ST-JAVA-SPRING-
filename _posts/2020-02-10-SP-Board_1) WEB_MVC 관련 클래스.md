@@ -93,7 +93,7 @@ BoardListContorller.java
   -ModelAnView
   -HttpServletRequest/Response
   
-4) DAO(interface) 
+4) DAO(interface), DAOImpl(class)
 
 5) server.xml(db 접속설정)
 
@@ -169,11 +169,22 @@ public class BoardListController implements Controller {
 
 4) DAO(interface)
 public class BoardDaoImpl implements BoardDao{
-
+ public List list();
+  }
+ 
+   DAOImpl(class)
+ public class BoardDaoImpl implements BoardDao{
+ private JdbcTemplate jdbctemplate;
+ 
+ public void setJdebcTemplate(JdbcTemplate jdbcTemplate){
+  this.jdbcTempalte = jdbcTempalte;
+ }
+ 
  @Override
  public List list(){
    return null;
- }
+ }   
+    
  
 5) server.xml(db 접속설정)
 <Resource name="jdbc/SpringDB"
