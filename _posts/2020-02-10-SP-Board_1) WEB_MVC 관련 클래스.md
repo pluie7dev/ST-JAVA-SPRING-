@@ -203,7 +203,8 @@ public class BoardDaoImpl implements BoardDao{
         }
    }
    
-   result = jdbcTemplate.query(sql, mapper);    
+   result = jdbcTemplate.query(sql, mapper);
+   
    //sql은 쿼리문, mapper은 쿼리실행후 가져올 결과값들
      (dto에 담는다)
    
