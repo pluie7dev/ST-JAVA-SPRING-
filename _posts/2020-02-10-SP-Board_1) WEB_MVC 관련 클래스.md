@@ -155,6 +155,11 @@ class="board.controller.BoardListController">
 
 3) controller : BoardListContorller.java
 public class BoardListController implements Controller {
+ private BoardDao boardDao;
+ 
+ public void setBoardDao(Boarddao boardDao){
+      this.boardDao = boardDao;
+ }
 
  @Override
  public ModelAndView handleRequest(HttpServletRequest arg0,
@@ -183,21 +188,22 @@ public class BoardDaoImpl implements BoardDao{
  @Override
  public List list(){
    String sql = "select * from tblSpringboard order by seq desc";
-   
-   jdbcTemplate.query(sql, mapper); 
-   
+   List result = new ArrayList();   
    RowMapper mapper = new RowMapper(){
         
         @Override
-        public Object mapRow(ResultSet arg-, int arg1) throws SQLException{
+        public Object mapRow(ResultSet arg0, int arg1) throws SQLException{
           BoardDto dto = new BoardDto();
           dto.setContent(arg0.getString("content"));
           dto.setHitcount(arg0.getInt("hitcount"));
           ...
+          
+          return dto;
         }
    }
    
-   return null;
+   result = jdbcTemplate.query(sql, mapper);    //sql은 쿼리문, mapper은 쿼리실행후 가져올 결과값들(dto에 담는다)
+   return result;
  }   
  
    -DTO(class)
