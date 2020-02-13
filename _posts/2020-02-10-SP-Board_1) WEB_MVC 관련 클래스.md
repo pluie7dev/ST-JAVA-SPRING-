@@ -61,7 +61,8 @@ JDBC
   (3) 결과를 수신 : RowMapper
   
 2) DataSource
-  (1) org.springframework.jdbc.datasource.DriverManagerDataSource
+  (1) org.springframework.jdbc.datasource.
+      DriverManagerDataSource
   (2) org.springframework.jndi.JndiObjectFactoryBean
   
 3) JdbcTemplate
