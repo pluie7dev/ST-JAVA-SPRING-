@@ -184,7 +184,19 @@ public class BoardDaoImpl implements BoardDao{
  public List list(){
    String sql = "select * from tblSpringboard order by seq desc";
    
-   jdbcTemplate.query(sql, result); 
+   jdbcTemplate.query(sql, mapper); 
+   
+   RowMapper mapper = new RowMapper(){
+        
+        @Override
+        public Object mapRow(ResultSet arg-, int arg1) throws SQLException{
+          BoardDto dto = new BoardDto();
+          dto.setContent(arg0.getString("content"));
+          dto.setHitcount(arg0.getInt("hitcount"));
+          ...
+        }
+   }
+   
    return null;
  }   
  
