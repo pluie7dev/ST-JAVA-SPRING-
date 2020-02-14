@@ -121,7 +121,17 @@ jsp/jstl/core" %>
   </table>
   
 2) obj 
-web.xml
+web.xml(*servlet-name은 스프링 config 파일을 만들때 name-servlet로 붙기 때문에 반드시 확인)
+
+<servlet>
+<servlet-name>springtest</servlet-name>
+<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>springtest</servlet-name>
+<url-pattern>*.do</url-pattern>
+</serlvet-mapping>
+
 
 
 springboard-servlet.xml
