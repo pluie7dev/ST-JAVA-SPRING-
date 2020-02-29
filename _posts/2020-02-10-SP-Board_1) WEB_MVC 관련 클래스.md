@@ -52,6 +52,10 @@ Dispatcher-Servlet은 ViewResolver에게 해당 객체를
    ViewResolver는 자동으로(default) 생성되는 객체
    사용자는 Controller만 비즈니스 로직으로 구현한다
    
+6) 기타 스프링 인터페이스 
+ (1) RowMapper (여러개의 결과값)
+ (2) ResultSetExtracter (하나의 결과값)
+   
 ---
 
 JDBC 
