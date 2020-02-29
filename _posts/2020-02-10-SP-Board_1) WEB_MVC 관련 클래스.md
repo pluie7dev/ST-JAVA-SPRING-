@@ -192,7 +192,7 @@ public class BoardListController implements Controller {
 ---
 4) -DAO(interface)
 
-public class BoardDao implements BoardDao{
+public interface BoardDao {
  public List list();
   }
 
