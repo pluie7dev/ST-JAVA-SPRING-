@@ -1,4 +1,5 @@
 
+ 
 ```
 --- 
 1. WEB_MVC 관련 클래스
@@ -111,29 +112,31 @@ jsp/jstl/core" %>
     <th>등록일</th>
   </tr>
   
-<c:forEach var="vo" items="${boardList}" delims="">
-  <tr>
-  <td>${vo.seq}</td><td>${vo.title}</td><td>
-  ${vo.writer}</td><td
-  ${vo.regdate}</tc>
-  </tr>
-</c:forEach>
-  </table>
+ <c:forEach var="vo" items="${boardList}" delims="">
+   <tr>
+   <td>${vo.seq}</td>
+   <td>${vo.title}</td>
+   <td>${vo.writer}</td>
+   <td>${vo.regdate}</td>
+   </tr>
+ </c:forEach>
+ </table>
   
 2) obj 
-web.xml(*servlet-name은 스프링 config 파일을 만들때 name-servlet로 붙기 때문에 반드시 확인)
+web.xml(*servlet-name은 스프링 config 파일을 만들때 
+name-servlet로 붙기 때문에 반드시 확인)
 
 <servlet>
-<servlet-name>springtest</servlet-name>
-<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+ <servlet-name>springtest</servlet-name>
+ <servlet-class>org.springframework.web.servlet.
+ DispatcherServlet</servlet-class>
 </servlet>
 <servlet-mapping>
-<servlet-name>springtest</servlet-name>
-<url-pattern>*.do</url-pattern>
+ <servlet-name>springtest</servlet-name>
+ <url-pattern>*.do</url-pattern>
 </serlvet-mapping>
 
-
-
+---
 springboard-servlet.xml
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/
@@ -142,29 +145,32 @@ schema/beans" .../>
 <bean id="dataSource" 
 class="org.springframework.jdbc.datasource.
 DriverManagerDataSource">
-<property name="driverClassName" 
-value="oracle.jdbc.driver.OracleDriver"/>
-<property name="url" 
-value="jdbc:oracle:thin:@localhost:1521:orcl"/>
-<property name="username" value="scott"/>
-<property name="password" value="a1234"/>
-  
+
+ <property name="driverClassName" 
+ value="oracle.jdbc.driver.OracleDriver"/>
+
+ <property name="url" 
+ value="jdbc:oracle:thin:@localhost:1521:orcl"/>
+ <property name="username" value="scott"/>
+ <property name="password" value="a1234"/>  
 </bean>
   
 <!-- Controller --> 
 <bean name="/board.list.do" 
 class="board.controller.BoardListController">
-<property name="boardDao" ref="boardDao"/>
+ <property name="boardDao" ref="boardDao"/>
 </bean>
   
 <!-- DAO -->
 <bean id="boardDao" class="board.dao.BoardDaoImpl">
-<property name="jdbcTemplate">
- <ref bean="springJdbcTemplate"/>
-</property>
+ <property name="jdbcTemplate">
+  <ref bean="springJdbcTemplate"/>
+ </property>
 </bean>
 
+---
 3) controller : BoardListContorller.java
+
 public class BoardListController implements Controller {
  private BoardDao boardDao;
  
@@ -183,12 +189,16 @@ public class BoardListController implements Controller {
   }
 }
 
+---
 4) -DAO(interface)
-public class BoardDaoImpl implements BoardDao{
+
+public class BoardDao implements BoardDao{
  public List list();
   }
- 
+
+--- 
    -DAOImpl(class)
+   
  public class BoardDaoImpl implements BoardDao{
  private JdbcTemplate jdbctemplate;
  
@@ -222,6 +232,7 @@ public class BoardDaoImpl implements BoardDao{
    return result;
  }   
  
+---
    -DTO(class)
  public class BoardDto{   
    private int seq;
@@ -243,10 +254,8 @@ public class BoardDaoImpl implements BoardDao{
    ... 
  
  }
-   
-   
-    
  
+--- 
 5) server.xml(db 접속설정)
 <Resource name="jdbc/SpringDB"
  auth="Container"
@@ -258,7 +267,5 @@ public class BoardDaoImpl implements BoardDao{
  maxActive="8"
  maxIdle="4"/>
  
- 
-}
 
 ```
