@@ -31,9 +31,8 @@ HandlerMapping 이용
  
 3) Controller(org.springframework.web.servlet.mvc)
  (1) Controller(interface)
- (2) AbstractController
- (3) AbstractCommandController
- (4) SimpleFormController
+ (2) AbstractController (Get 방식 전달/3.x 버전부터
+     어노테이션으로 사용)
  
 4) ViewResolver(org.springframework.web.servlet.view)
 컨트롤러를 통해 db작업등의 결과를 ModelAndView로 가져오면
