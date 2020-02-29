@@ -1,0 +1,23 @@
+
+```
+한글처리 
+
+web.xml -> filter class 등록
+(request 요청에만 해당 / response 에는 해당하지 않는다)
+
+web.xml 
+
+<filter>
+	<filter-name>encodingFilter</filter-name>
+	<filter-class>org.springframework.web.filter.CharacterEncoding</filter-class>
+	<init-param>
+		<param-name>encoding</param-name>
+		<param-value>euc-kr</param-value>
+	</init-param>
+</filter>
+
+
+<filteer-mapping>
+	<filter-name>encodingFilter</filter-name>
+	<url-pattern>/*</url-pattern>
+</filter-mapping>
