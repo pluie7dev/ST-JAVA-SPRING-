@@ -98,7 +98,7 @@ BoardListContorller.java
   -ModelAnView
   -HttpServletRequest/Response
   
-4) DAO(interface), DAOImpl(class), DTO
+4) DAO(interface), DAOImpl(class), DTO(getter/setter)
 
 5) server.xml(db 접속설정)
 
